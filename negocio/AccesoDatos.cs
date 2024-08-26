@@ -20,10 +20,7 @@ namespace negocio
         {
             conexion = new SqlConnection("Cadena de conexion");
             comando = new SqlCommand();
-            //comando.Connection = conexion;
-
-            //conexion.Open();
-
+           
         }
 
         public void setearConsulta(string consulta)
@@ -48,7 +45,39 @@ namespace negocio
             }
 
         }
+
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
         public void cerrarConexion()
+        {
+            if (lector != null)
+            {
+                lector.Close();
+            }
+            conexion.Close();
+        }
+    }
+
+
+    public void cerrarConexion()
         {
             if (lector != null)
             {
