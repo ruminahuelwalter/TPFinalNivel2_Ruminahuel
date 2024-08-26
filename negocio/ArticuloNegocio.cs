@@ -50,5 +50,30 @@ namespace negocio
             }
 
         }
+
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            
+            try
+            {
+                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion,IdMarca, IdCategoria, ImagenUrl, Precio) values (" + nuevo.Codigo + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion+"',@idMarca, @idCategoria, @imagenUrl,'" + nuevo.Precio + "')");
+                datos.setearParametro("@idMarca", nuevo.Marca.Id);
+                datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
+                datos.setearParametro("@urlImagen", nuevo.UrlImagen);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }
