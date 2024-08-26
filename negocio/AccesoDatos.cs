@@ -11,6 +11,52 @@ namespace negocio
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
+        public SqlDataReader Lector
+        {
+            get { return lector; }
+        }
 
+        public AccesoDatos()
+        {
+            conexion = new SqlConnection("Cadena de conexion");
+            comando = new SqlCommand();
+            //comando.Connection = conexion;
+
+            //conexion.Open();
+
+        }
+
+        public void setearConsulta(string consulta)
+        {
+            comando.CommandType = System.Data.CommandType.Text; // Tipo
+            comando.CommandText = consulta; // Query
+
+        }
+
+        public void ejecutarLectura()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                lector = comando.ExecuteReader();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public void cerrarConexion()
+        {
+            if (lector != null)
+            {
+                lector.Close();
+            }
+            conexion.Close();
+
+
+        }
     }
 }
