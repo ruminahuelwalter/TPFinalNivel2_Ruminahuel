@@ -11,7 +11,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Parametros de la consulta");
+                datos.setearConsulta("SELECT Codigo, Nombre, A.Descripcion, ImagenUrl, C.Descripcion Categoria, M.Descripcion Marca, A.IdCategoria, A.IdMarca, A.Id From ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca And C.Id = A.IdCategoria ");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -24,9 +24,11 @@ namespace negocio
 
                     aux.Marca = new Marca();
                     aux.Marca.Id = (int)datos.Lector["Id"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Id = (int)datos.Lector["IdMarca"];
+                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     if (!(datos.Lector["UrlImagen"] is DBNull))
                     {
