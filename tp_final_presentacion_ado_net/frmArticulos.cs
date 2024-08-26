@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace tp_final_presentacion_ado_net
 {
-    public partial class Form1 : Form
+    public partial class frmArticulos : Form
     {
-        public Form1()
+        public frmArticulos()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace tp_final_presentacion_ado_net
 {
-    partial class Form1
+    partial class frmArticulos
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(753, 447);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmArticulos";
+            this.Text = "Articulos";
             this.ResumeLayout(false);
 
         }

@@ -16,7 +16,7 @@ namespace tp_final_presentacion_ado_net
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmArticulos());
         }
     }
 }
