@@ -5,7 +5,7 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
-        public List<Articulo> listar()
+        public List<Articulo> Listar()
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
@@ -51,7 +51,7 @@ namespace negocio
 
         }
 
-        public void agregar(Articulo nuevo)
+        public void Agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             
@@ -72,6 +72,48 @@ namespace negocio
             finally
             {
                 datos.cerrarConexion();
+            }
+        }
+
+
+        public void Modificar(Articulo article)
+        {
+            AccesoDatos datos = new AccesoDatos();
+     
+            try
+            {
+                datos.setearConsulta("update Articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, UrlImagen = @img Where Id = @id");
+                datos.setearParametro("@numero", article.Codigo);
+                datos.setearParametro("@nombre", article.Nombre);
+                datos.setearParametro("@desc", article.Descripcion);
+                datos.setearParametro("@img", article.UrlImagen);
+                datos.setearParametro("@idMarca", article.Marca.Id);
+                datos.setearParametro("@idCategoria", article.Categoria.Id);
+                datos.setearParametro("@id", article.Id);
+    
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+        public void Eliminar(int id)
+        {
+
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setearConsulta("delete from Articulos where id = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
 
