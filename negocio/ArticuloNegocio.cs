@@ -57,7 +57,7 @@ namespace negocio
             
             try
             {
-                datos.setearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion,IdMarca, IdCategoria, ImagenUrl, Precio) values (" + nuevo.Codigo + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion+"',@idMarca, @idCategoria, @imagenUrl,'" + nuevo.Precio + "')");
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion,IdMarca, IdCategoria, ImagenUrl, Precio) values (" + nuevo.Codigo + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion+"',@idMarca, @idCategoria, @imagenUrl,'" + nuevo.Precio + "')");
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
                 datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@urlImagen", nuevo.UrlImagen);
@@ -82,7 +82,7 @@ namespace negocio
      
             try
             {
-                datos.setearConsulta("update Articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, UrlImagen = @img, Precio = @precio Where Id = @id");
+                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, UrlImagen = @img, Precio = @precio Where Id = @id");
                 datos.setearParametro("@numero", article.Codigo);
                 datos.setearParametro("@nombre", article.Nombre);
                 datos.setearParametro("@desc", article.Descripcion);
@@ -107,13 +107,12 @@ namespace negocio
             try
             {
                 AccesoDatos datos = new AccesoDatos();
-                datos.setearConsulta("delete from Articulos where id = @id");
+                datos.setearConsulta("DELETE FROM ARTICULOS WHERE id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
