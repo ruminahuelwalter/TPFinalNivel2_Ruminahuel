@@ -57,5 +57,12 @@ namespace tp_final_presentacion_ado_net
             Cargar();
 
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+            Cargar();
+        }
     }
 }
