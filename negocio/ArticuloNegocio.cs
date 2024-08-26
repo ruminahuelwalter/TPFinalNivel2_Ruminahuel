@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using dominio;
 namespace negocio
 {
@@ -11,7 +12,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("SELECT Codigo, Nombre, A.Descripcion, ImagenUrl, C.Descripcion Categoria, M.Descripcion Marca, A.IdCategoria, A.IdMarca, A.Id From ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca And C.Id = A.IdCategoria ");
+                datos.setearConsulta("SELECT Codigo, Nombre, A.Descripcion, ImagenUrl, C.Descripcion Categoria, M.Descripcion Marca, A.IdCategoria, A.IdMarca, A.Id, Precio From ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca And C.Id = A.IdCategoria ");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -30,12 +31,12 @@ namespace negocio
                     aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
-                    if (!(datos.Lector["UrlImagen"] is DBNull))
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
                     {
-                        aux.UrlImagen = (string)datos.Lector["UrlImagen"];
+                        aux.UrlImagen = (string)datos.Lector["ImagenUrl"];
                     }
 
-                    aux.Precio = (double)datos.Lector["Precio"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
 
 
                     lista.Add(aux);

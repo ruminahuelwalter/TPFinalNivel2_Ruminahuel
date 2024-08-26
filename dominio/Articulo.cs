@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace dominio
         public Categoria Categoria { get; set; }
         public Marca Marca { get; set; }
 
-        public double Precio { get; set; }
+        public decimal Precio { get; set; }
 
 
     }
