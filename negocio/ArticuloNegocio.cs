@@ -82,11 +82,12 @@ namespace negocio
      
             try
             {
-                datos.setearConsulta("update Articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, UrlImagen = @img Where Id = @id");
+                datos.setearConsulta("update Articulos set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, UrlImagen = @img, Precio = @precio Where Id = @id");
                 datos.setearParametro("@numero", article.Codigo);
                 datos.setearParametro("@nombre", article.Nombre);
                 datos.setearParametro("@desc", article.Descripcion);
                 datos.setearParametro("@img", article.UrlImagen);
+                datos.setearParametro("@precio", article.Precio);
                 datos.setearParametro("@idMarca", article.Marca.Id);
                 datos.setearParametro("@idCategoria", article.Categoria.Id);
                 datos.setearParametro("@id", article.Id);
