@@ -45,7 +45,7 @@ namespace tp_final_presentacion_ado_net
                 listaCategorias = negocio.Listar();
                 foreach (var item in listaCategorias)
                 {
-                    if (item.Descripcion.Equals(categoria.Descripcion))
+                    if (item.Descripcion.ToString().ToLower().Equals(categoria.Descripcion.ToLower()))
                     {
                         categoriaExistente = true;
                     }

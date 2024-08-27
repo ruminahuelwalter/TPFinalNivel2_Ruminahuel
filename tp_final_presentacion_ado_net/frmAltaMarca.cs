@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace tp_final_presentacion_ado_net
     public partial class frmAltaMarca : Form
     {
         private Marca marca= null;
+        private List<Marca> listaMarcas;
         public frmAltaMarca()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace tp_final_presentacion_ado_net
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             MarcaNegocio negocio = new MarcaNegocio();
+            bool marcaExistente = false;
             try
             {
                 if (marca == null)
@@ -38,17 +41,32 @@ namespace tp_final_presentacion_ado_net
                 }
 
                 marca.Descripcion = txtNuevaMarca.Text;
-               
+                // Chequear existencia de categoria
+                listaMarcas = negocio.Listar();
+                foreach (var item in listaMarcas)
+                {
+                    if (item.Descripcion.ToString().ToLower().Equals(marca.Descripcion.ToLower()))
+                    {
+                        marcaExistente = true;
+                    }
+
+                }
+
                 if (marca.Id != 0)
                 {
                     negocio.Modificar(marca);
                     
                     MessageBox.Show("La marca se modifico correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (marca.Descripcion != "")
+                else if (marca.Descripcion != "" && !marcaExistente)
                 {
                     negocio.Agregar(marca);
                     MessageBox.Show("La marca se agrego correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                else if (marcaExistente)
+                {
+                    MessageBox.Show("Error al agregar, marca existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 Close();
