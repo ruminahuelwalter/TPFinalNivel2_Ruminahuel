@@ -120,7 +120,7 @@ namespace negocio
                 datos.Lector.Read();
                 int contador = datos.Lector.GetInt32(0); // Obtiene el primer (y único) valor del lector
 
-                datos.cerrarConexion(); // Cierra la conexión después de la lectura
+                datos.cerrarConexion(); 
 
                 if (contador > 0)
                 {

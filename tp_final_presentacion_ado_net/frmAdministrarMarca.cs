@@ -43,31 +43,7 @@ namespace tp_final_presentacion_ado_net
             dgvMarcas.Columns["Id"].Visible = false;
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            //MarcaNegocio negocio = new MarcaNegocio();
-            try
-            {
-                if (marca == null)
-                {
-                    marca = new Marca();
-                }
-
-                marca.Descripcion = txtNuevaMarca.Text;
-                if (marca.Descripcion != "")
-                {
-                    negocio.Agregar(marca);
-                    MessageBox.Show("Marca agregada exitosamente");
-                }
-                cargar();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-        }
+       
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -85,6 +61,52 @@ namespace tp_final_presentacion_ado_net
            
             //cargar();
             Close();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca marca = new frmAltaMarca();
+            marca.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Marca seleccionado;
+            seleccionado = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+            frmAltaMarca categoria = new frmAltaMarca(seleccionado);
+            categoria.ShowDialog();
+            cargar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();
+        }
+
+        private void eliminar()
+        {
+
+            MarcaNegocio negocio = new MarcaNegocio();
+            Marca seleccionado;
+            seleccionado = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad desea eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+                    negocio.Eliminar(seleccionado.Id);
+                    MessageBox.Show("La marca se eliminó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+
         }
     }
 }

@@ -58,15 +58,15 @@ namespace negocio
         }
 
 
-        public void Modificar(Articulo article)
+        public void Modificar(Marca marca)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
                 datos.setearConsulta("UPDATE MARCAS SET Descripcion = @desc Where Id = @id");
-                datos.setearParametro("@desc", article.Descripcion);
-                datos.setearParametro("@id", article.Id);
+                datos.setearParametro("@desc", marca.Descripcion);
+                datos.setearParametro("@id", marca.Id);
 
                 datos.ejecutarAccion();
             }
@@ -77,21 +77,65 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
+
         public void Eliminar(int id)
         {
-
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
-                datos.setearConsulta("DELETE FROM MARCAS WHERE id = @id");
-                datos.setearParametro("@id", id);
-                datos.ejecutarAccion();
+
+                if (!verificarSiHayReferencias(id))
+                {
+                    datos.setearConsulta("DELETE FROM MARCAS WHERE id = @id");
+                    datos.setearParametro("@id", id);
+                    datos.ejecutarAccion();
+                }
+                else
+                {
+                    throw new Exception("No se puede eliminar la marca porque está referenciada en uno o más artículos.");
+
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al intentar eliminar la marca: " + ex.Message, ex);
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
+
+        private bool verificarSiHayReferencias(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Verificar si la marca está referenciada en artículos
+                datos.setearConsulta("SELECT COUNT(*) FROM ARTICULOS WHERE IdMarca = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                datos.Lector.Read();
+                int contador = datos.Lector.GetInt32(0); // Obtiene el primer (y único) valor del lector
+
+                datos.cerrarConexion();
+
+                if (contador > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
+
 
     }
 }

@@ -77,8 +77,6 @@ namespace tp_final_presentacion_ado_net
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Categoria seleccionado;
-            seleccionado = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
             eliminar();
         }
 
@@ -102,7 +100,6 @@ namespace tp_final_presentacion_ado_net
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MessageBox.Show(ex.ToString());
             }
 
         }
