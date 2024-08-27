@@ -102,7 +102,9 @@
             this.Controls.Add(this.txtNuevaCategoria);
             this.Controls.Add(this.lblCategoria);
             this.Name = "frmAltaCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AltaCategoria";
+            this.Load += new System.EventHandler(this.frmAltaCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

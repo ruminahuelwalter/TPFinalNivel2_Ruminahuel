@@ -139,5 +139,19 @@ namespace tp_final_presentacion_ado_net
                 cargarImagen(archivo.FileName);
             }
         }
+
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca altaMarca = new frmAltaMarca();
+            altaMarca.ShowDialog();
+            
+        }
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria altaCategoria = new frmAltaCategoria();
+            altaCategoria.ShowDialog();
+
+        }
     }
 }

@@ -65,5 +65,10 @@ namespace tp_final_presentacion_ado_net
             }
 
         }
+
+        private void frmAltaCategoria_Load(object sender, EventArgs e)
+        {
+            cargar();
+        }
     }
 }
