@@ -25,7 +25,7 @@ namespace tp_final_presentacion_ado_net
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                //cargarImagen(seleccionado.UrlImagen);
+                cargarImagen(seleccionado.UrlImagen);
             }
         }
 
@@ -37,12 +37,25 @@ namespace tp_final_presentacion_ado_net
                 listaArticulo = negocio.Listar();
                 dgvArticulos.DataSource = listaArticulo;
                 OcultarColumnas();
-                //cargarImagen(listaPokemon[0].UrlImagen);
+                cargarImagen(listaArticulo[0].UrlImagen);
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.Load(imagen);
+            }
+            catch (Exception )
+            {
+
+                pbxArticulo.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
             }
         }
 
@@ -63,6 +76,45 @@ namespace tp_final_presentacion_ado_net
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
             Cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+            
+            modificar.ShowDialog();
+            Cargar();
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();
+        }
+
+        private void eliminar()
+        {
+
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad desea eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.Eliminar(seleccionado.Id);
+                    Cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }
