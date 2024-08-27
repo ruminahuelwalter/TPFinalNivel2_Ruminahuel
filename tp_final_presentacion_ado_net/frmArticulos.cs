@@ -130,5 +130,16 @@ namespace tp_final_presentacion_ado_net
             altaCategoria.ShowDialog();
             //cargarMarcaCategoria();
         }
+
+        private void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            // No se deberia poder editar en esta vista
+            frmDetalleArticulo ver = new frmDetalleArticulo(seleccionado);
+
+            ver.ShowDialog();
+            Cargar();
+        }
     }
 }

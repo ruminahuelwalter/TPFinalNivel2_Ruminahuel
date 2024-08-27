@@ -57,6 +57,7 @@ namespace tp_final_presentacion_ado_net
                 if (marca.Descripcion != "")
                 {
                     negocio.Agregar(marca);
+                    MessageBox.Show("Marca agregada exitosamente");
                 }
                 cargar();
 

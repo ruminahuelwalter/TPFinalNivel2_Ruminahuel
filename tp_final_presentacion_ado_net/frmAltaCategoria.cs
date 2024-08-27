@@ -61,6 +61,7 @@ namespace tp_final_presentacion_ado_net
                 if (categoria.Descripcion != "")
                 {
                     negocio.Agregar(categoria);
+                    MessageBox.Show("Categoria agregada exitosamente");
                 }
                 cargar();
 
@@ -75,6 +76,11 @@ namespace tp_final_presentacion_ado_net
         private void frmAltaCategoria_Load(object sender, EventArgs e)
         {
             cargar();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
