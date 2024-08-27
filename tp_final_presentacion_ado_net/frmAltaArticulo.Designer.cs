@@ -161,9 +161,11 @@
             // 
             // pbxArticulo
             // 
+            this.pbxArticulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxArticulo.Location = new System.Drawing.Point(336, 40);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(260, 321);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 13;
             this.pbxArticulo.TabStop = false;
             // 
