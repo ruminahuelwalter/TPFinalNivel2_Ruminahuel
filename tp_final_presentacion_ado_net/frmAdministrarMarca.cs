@@ -12,13 +12,13 @@ using negocio;
 
 namespace tp_final_presentacion_ado_net
 {
-    public partial class frmAltaMarca : Form
+    public partial class frmAdministrarMarca : Form
     {
         private List<Marca> listaMarcas;
         
         private Marca marca;
         MarcaNegocio negocio = new MarcaNegocio();
-        public frmAltaMarca()
+        public frmAdministrarMarca()
         {
             InitializeComponent();
         }

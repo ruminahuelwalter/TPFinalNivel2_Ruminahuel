@@ -1,6 +1,6 @@
 ﻿namespace tp_final_presentacion_ado_net
 {
-    partial class frmAltaMarca
+    partial class frmAdministrarMarca
     {
         /// <summary>
         /// Required designer variable.

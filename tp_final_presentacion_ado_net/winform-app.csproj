@@ -47,23 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAltaCategoria.cs">
+    <Compile Include="frmAdministrarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAltaCategoria.Designer.cs">
-      <DependentUpon>frmAltaCategoria.cs</DependentUpon>
+    <Compile Include="frmAdministrarCategoria.Designer.cs">
+      <DependentUpon>frmAdministrarCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAltaMarca.cs">
+    <Compile Include="frmAdministrarMarca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAltaMarca.Designer.cs">
-      <DependentUpon>frmAltaMarca.cs</DependentUpon>
+    <Compile Include="frmAdministrarMarca.Designer.cs">
+      <DependentUpon>frmAdministrarMarca.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAltaArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAltaArticulo.Designer.cs">
       <DependentUpon>frmAltaArticulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAltaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaCategoria.Designer.cs">
+      <DependentUpon>frmAltaCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="frmArticulos.cs">
       <SubType>Form</SubType>
@@ -79,14 +85,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAltaCategoria.resx">
-      <DependentUpon>frmAltaCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdministrarCategoria.resx">
+      <DependentUpon>frmAdministrarCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltaArticulo.resx">
       <DependentUpon>frmAltaArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAltaMarca.resx">
-      <DependentUpon>frmAltaMarca.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdministrarMarca.resx">
+      <DependentUpon>frmAdministrarMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaCategoria.resx">
+      <DependentUpon>frmAltaCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmArticulos.resx">
       <DependentUpon>frmArticulos.cs</DependentUpon>

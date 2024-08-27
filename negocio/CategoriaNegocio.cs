@@ -59,15 +59,15 @@ namespace negocio
         }
 
 
-        public void Modificar(Marca marca)
+        public void Modificar(Categoria categoria)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("UPDATE ARTICULOS SET Descripcion = @desc Where Id = @id");
-                datos.setearParametro("@desc", marca.Descripcion);
-                datos.setearParametro("@id", marca.Id);
+                datos.setearConsulta("UPDATE CATEGORIAS SET Descripcion = @desc Where Id = @id");
+                datos.setearParametro("@desc", categoria.Descripcion);
+                datos.setearParametro("@id", categoria.Id);
 
                 datos.ejecutarAccion();
             }
@@ -78,21 +78,65 @@ namespace negocio
             }
             finally { datos.cerrarConexion(); }
         }
+
         public void Eliminar(int id)
         {
+            AccesoDatos datos = new AccesoDatos();
+            try {
 
-            try
-            {
-                AccesoDatos datos = new AccesoDatos();
-                datos.setearConsulta("DELETE FROM ARTICULOS WHERE id = @id");
-                datos.setearParametro("@id", id);
-                datos.ejecutarAccion();
+                if (!verificarSiHayReferencias(id))
+                {
+                    datos.setearConsulta("DELETE FROM CATEGORIAS WHERE id = @id");
+                    datos.setearParametro("@id", id);
+                    datos.ejecutarAccion();
+                }
+                else
+                {
+                    throw new Exception("No se puede eliminar la categoría porque está referenciada en uno o más artículos.");
+                    
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                // Envio del error a capas superiores
+                throw new Exception("Error al intentar eliminar la categoría: " + ex.Message, ex);
+            }
+            finally
+            {
+                datos.cerrarConexion(); 
             }
         }
+
+        private bool verificarSiHayReferencias(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Verificar si la categoría está referenciada en artículos
+                datos.setearConsulta("select COUNT(*) from articulos where IdCategoria = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                datos.Lector.Read();
+                int contador = datos.Lector.GetInt32(0); // Obtiene el primer (y único) valor del lector
+
+                datos.cerrarConexion(); // Cierra la conexión después de la lectura
+
+                if (contador > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+        }
+
 
     }
 }

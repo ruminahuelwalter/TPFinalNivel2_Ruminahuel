@@ -119,14 +119,14 @@ namespace tp_final_presentacion_ado_net
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAltaMarca altaMarca = new frmAltaMarca();
+            frmAdministrarMarca altaMarca = new frmAdministrarMarca();
             altaMarca.ShowDialog();
             //cargarMarcaCategoria();
         }
 
         private void agregarModificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAltaCategoria altaCategoria = new frmAltaCategoria();
+            frmAdministrarCategoria altaCategoria = new frmAdministrarCategoria();
             altaCategoria.ShowDialog();
             //cargarMarcaCategoria();
         }
