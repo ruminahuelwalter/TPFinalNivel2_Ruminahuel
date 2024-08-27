@@ -25,7 +25,7 @@ namespace tp_final_presentacion_ado_net
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.UrlImagen);
+                cargarImagen(seleccionado.ImagenUrl);
             }
         }
 
@@ -37,7 +37,7 @@ namespace tp_final_presentacion_ado_net
                 listaArticulo = negocio.Listar();
                 dgvArticulos.DataSource = listaArticulo;
                 OcultarColumnas();
-                cargarImagen(listaArticulo[0].UrlImagen);
+                cargarImagen(listaArticulo[0].ImagenUrl);
             }
             catch (Exception ex)
             {
@@ -62,7 +62,7 @@ namespace tp_final_presentacion_ado_net
         private void OcultarColumnas()
         {
             dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["ImagenUrl"].Visible = false;
         }
 
         private void frmArticulos_Load(object sender, EventArgs e)

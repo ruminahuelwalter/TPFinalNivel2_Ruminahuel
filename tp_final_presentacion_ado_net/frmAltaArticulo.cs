@@ -11,6 +11,7 @@ using System.IO;
 using dominio;
 using negocio;
 using System.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace tp_final_presentacion_ado_net
 {
@@ -48,7 +49,13 @@ namespace tp_final_presentacion_ado_net
                     txtCodigo.Text = articulo.Codigo;
                     txtNombre.Text = articulo.Nombre;
                     txtDescripcion.Text = articulo.Descripcion;
-                    txtUrlImagen.Text = articulo.UrlImagen;
+                    txtUrlImagen.Text = articulo.ImagenUrl;
+                    cargarImagen(articulo.ImagenUrl);
+
+                    decimal valorDecimal = articulo.Precio;
+                    txtPrecio.Text = valorDecimal.ToString(); // Muestra 2 decimales
+
+          
                     cboMarca.SelectedValue = articulo.Marca.Id;
                     cboCategoria.SelectedValue = articulo.Categoria.Id;
 
@@ -76,7 +83,21 @@ namespace tp_final_presentacion_ado_net
                 articulo.Codigo = txtCodigo.Text;
                 articulo.Nombre = txtNombre.Text;
                 articulo.Descripcion = txtDescripcion.Text;
-                articulo.UrlImagen = txtUrlImagen.Text;
+                articulo.ImagenUrl = txtUrlImagen.Text;
+
+                string input = txtPrecio.Text;
+                decimal valorDecimal;
+
+                if (decimal.TryParse(input, out valorDecimal))
+                {
+                    // La conversión fue exitosa, puedes usar valorDecimal
+                    articulo.Precio = valorDecimal;
+                }
+                else
+                {
+                    // La conversión falló, manejar el error
+                    MessageBox.Show("Por favor, ingresa un número válido.");
+                }
 
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;

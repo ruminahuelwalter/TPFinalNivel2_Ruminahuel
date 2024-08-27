@@ -33,7 +33,7 @@ namespace negocio
 
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                     {
-                        aux.UrlImagen = (string)datos.Lector["ImagenUrl"];
+                        aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
                     }
 
                     aux.Precio = (decimal)datos.Lector["Precio"];
@@ -60,10 +60,14 @@ namespace negocio
             
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion,IdMarca, IdCategoria, ImagenUrl, Precio) values (" + nuevo.Codigo + ",'" + nuevo.Nombre + "','" + nuevo.Descripcion+"',@idMarca, @idCategoria, @imagenUrl,'" + nuevo.Precio + "')");
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion,IdMarca, IdCategoria, ImagenUrl, Precio) values (@Codigo, @Nombre, @Descripcion,@idMarca, @idCategoria, @ImagenUrl, @Precio)");
+                datos.setearParametro("@Codigo", nuevo.Codigo);
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@Descripcion", nuevo.Descripcion);
+                datos.setearParametro("@Precio", nuevo.Precio);
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
                 datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
-                datos.setearParametro("@urlImagen", nuevo.UrlImagen);
+                datos.setearParametro("@imagenUrl", nuevo.ImagenUrl);
 
                 datos.ejecutarAccion();
             }
@@ -85,11 +89,11 @@ namespace negocio
      
             try
             {
-                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, UrlImagen = @img, Precio = @precio Where Id = @id");
-                datos.setearParametro("@numero", article.Codigo);
+                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCategoria, ImagenUrl = @img, Precio = @precio Where Id = @id");
+                datos.setearParametro("@codigo", article.Codigo);
                 datos.setearParametro("@nombre", article.Nombre);
                 datos.setearParametro("@desc", article.Descripcion);
-                datos.setearParametro("@img", article.UrlImagen);
+                datos.setearParametro("@img", article.ImagenUrl);
                 datos.setearParametro("@precio", article.Precio);
                 datos.setearParametro("@idMarca", article.Marca.Id);
                 datos.setearParametro("@idCategoria", article.Categoria.Id);

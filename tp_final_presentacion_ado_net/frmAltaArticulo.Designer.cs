@@ -46,6 +46,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregarMarca = new System.Windows.Forms.Button();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +103,7 @@
             // lblUrlImagen
             // 
             this.lblUrlImagen.AutoSize = true;
-            this.lblUrlImagen.Location = new System.Drawing.Point(39, 165);
+            this.lblUrlImagen.Location = new System.Drawing.Point(39, 204);
             this.lblUrlImagen.Name = "lblUrlImagen";
             this.lblUrlImagen.Size = new System.Drawing.Size(60, 13);
             this.lblUrlImagen.TabIndex = 6;
@@ -109,7 +111,7 @@
             // 
             // txtUrlImagen
             // 
-            this.txtUrlImagen.Location = new System.Drawing.Point(130, 162);
+            this.txtUrlImagen.Location = new System.Drawing.Point(130, 201);
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(100, 20);
             this.txtUrlImagen.TabIndex = 7;
@@ -117,7 +119,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(155, 188);
+            this.btnAgregar.Location = new System.Drawing.Point(155, 227);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 8;
@@ -128,7 +130,7 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(39, 230);
+            this.lblMarca.Location = new System.Drawing.Point(39, 269);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(40, 13);
             this.lblMarca.TabIndex = 9;
@@ -137,7 +139,7 @@
             // cboMarca
             // 
             this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(109, 227);
+            this.cboMarca.Location = new System.Drawing.Point(109, 266);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(121, 21);
             this.cboMarca.TabIndex = 10;
@@ -145,7 +147,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(38, 295);
+            this.lblCategoria.Location = new System.Drawing.Point(38, 334);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(55, 13);
             this.lblCategoria.TabIndex = 11;
@@ -154,7 +156,7 @@
             // cboCategoria
             // 
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(109, 289);
+            this.cboCategoria.Location = new System.Drawing.Point(109, 328);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(121, 21);
             this.cboCategoria.TabIndex = 12;
@@ -191,7 +193,7 @@
             // 
             // btnAgregarMarca
             // 
-            this.btnAgregarMarca.Location = new System.Drawing.Point(236, 225);
+            this.btnAgregarMarca.Location = new System.Drawing.Point(236, 264);
             this.btnAgregarMarca.Name = "btnAgregarMarca";
             this.btnAgregarMarca.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarMarca.TabIndex = 16;
@@ -201,7 +203,7 @@
             // 
             // btnAgregarCategoria
             // 
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(236, 289);
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(236, 328);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarCategoria.TabIndex = 17;
@@ -209,11 +211,30 @@
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
             this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
             // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(130, 162);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.TabIndex = 19;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(39, 165);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(40, 13);
+            this.lblPrecio.TabIndex = 18;
+            this.lblPrecio.Text = "Precio:";
+            // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 422);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.btnAgregarCategoria);
             this.Controls.Add(this.btnAgregarMarca);
             this.Controls.Add(this.btnCancelar);
@@ -262,5 +283,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregarMarca;
         private System.Windows.Forms.Button btnAgregarCategoria;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Label lblPrecio;
     }
 }
