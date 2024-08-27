@@ -59,6 +59,7 @@
             // dgvCategorias
             // 
             this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorias.Enabled = false;
             this.dgvCategorias.Location = new System.Drawing.Point(41, 60);
             this.dgvCategorias.Name = "dgvCategorias";
             this.dgvCategorias.Size = new System.Drawing.Size(234, 197);
@@ -126,7 +127,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAltaCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AltaCategoria";
+            this.Text = "Administrar Categorias";
             this.Load += new System.EventHandler(this.frmAltaCategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
             this.groupBox1.ResumeLayout(false);

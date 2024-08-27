@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using negocio;
+using System.Text.RegularExpressions;
 
 namespace tp_final_presentacion_ado_net
 {
@@ -57,6 +58,11 @@ namespace tp_final_presentacion_ado_net
                 }
 
                 categoria.Descripcion = txtNuevaCategoria.Text;
+                if (categoria.Descripcion != "")
+                {
+                    negocio.Agregar(categoria);
+                }
+                cargar();
 
             }
             catch (Exception ex)
