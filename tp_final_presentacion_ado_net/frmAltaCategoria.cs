@@ -15,6 +15,7 @@ namespace tp_final_presentacion_ado_net
     public partial class frmAltaCategoria : Form
     {
         private Categoria categoria = null;
+        private List<Categoria> listaCategorias;
         public frmAltaCategoria()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace tp_final_presentacion_ado_net
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             CategoriaNegocio negocio = new CategoriaNegocio();
+            bool categoriaExistente = false;
             try
             {
                 if (categoria == null)
@@ -38,21 +40,31 @@ namespace tp_final_presentacion_ado_net
                 }
 
                 categoria.Descripcion = txtNuevaCategoria.Text;
-                //if (categoria.Descripcion != "")
-                //{
-                 //   negocio.Agregar(categoria);
-                 //   MessageBox.Show("Categoria agregada exitosamente");
-                //}
+
+                // Chequear existencia de categoria
+                listaCategorias = negocio.Listar();
+                foreach (var item in listaCategorias)
+                {
+                    if (item.Descripcion.Equals(categoria.Descripcion))
+                    {
+                        categoriaExistente = true;
+                    }
+                    
+                }
 
                 if (categoria.Id != 0)
                 {
                     negocio.Modificar(categoria);
                     MessageBox.Show("La categoria se modifico correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (categoria.Descripcion != "") 
+                else if (categoria.Descripcion != "" && !categoriaExistente)
                 {
                     negocio.Agregar(categoria);
                     MessageBox.Show("La categoria se agregó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (categoriaExistente)
+                {
+                    MessageBox.Show( "Error al agregar, categoria existente","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 Close();

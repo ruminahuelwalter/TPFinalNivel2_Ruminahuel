@@ -112,7 +112,7 @@ namespace tp_final_presentacion_ado_net
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -135,7 +135,7 @@ namespace tp_final_presentacion_ado_net
         {
             Articulo seleccionado;
             seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            // No se deberia poder editar en esta vista
+
             frmDetalleArticulo ver = new frmDetalleArticulo(seleccionado);
 
             ver.ShowDialog();

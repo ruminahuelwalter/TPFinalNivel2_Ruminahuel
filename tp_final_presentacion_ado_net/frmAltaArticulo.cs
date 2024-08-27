@@ -95,7 +95,7 @@ namespace tp_final_presentacion_ado_net
 
                 if (decimal.TryParse(input,NumberStyles.Number, cultureInfo,out valorDecimal))
                 {
-                    // La conversión fue exitosa, puedes usar valorDecimal
+                  
                     articulo.Precio = valorDecimal;
                 }
                 else

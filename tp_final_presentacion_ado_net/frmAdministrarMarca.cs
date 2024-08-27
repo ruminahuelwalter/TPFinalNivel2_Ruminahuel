@@ -48,7 +48,6 @@ namespace tp_final_presentacion_ado_net
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
-      
         }
 
         private void frmAltaMarca_Load(object sender, EventArgs e)
@@ -58,8 +57,6 @@ namespace tp_final_presentacion_ado_net
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           
-            //cargar();
             Close();
         }
 
