@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using dominio;
 using negocio;
+using System.Configuration;
 
 namespace tp_final_presentacion_ado_net
 {
@@ -63,12 +65,79 @@ namespace tp_final_presentacion_ado_net
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                if (articulo == null)
+                {
+                    articulo = new Articulo();
+                }
 
+                articulo.Codigo = txtCodigo.Text;
+                articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
+                articulo.UrlImagen = txtUrlImagen.Text;
+
+                articulo.Marca = (Marca)cboMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
+
+                if (articulo.Id != 0)
+                {
+                    negocio.Modificar(articulo);
+                    MessageBox.Show("Modificado exitosamente");
+                }
+                else
+                {
+                    negocio.Agregar(articulo);
+                    MessageBox.Show("Agregado exitosamente");
+                }
+                if (archivo != null && !(txtUrlImagen.Text.ToUpper().Contains("HTTP")))
+                {
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+                }
+
+                Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtUrlImagen.Text);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pbxArticulo.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg |*.jpg |png |*.png";
+
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+
+                txtUrlImagen.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+            }
         }
     }
 }
