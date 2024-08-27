@@ -12,6 +12,7 @@ using dominio;
 using negocio;
 using System.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Globalization;
 
 namespace tp_final_presentacion_ado_net
 {
@@ -19,6 +20,8 @@ namespace tp_final_presentacion_ado_net
     {
         private Articulo articulo = null;
         OpenFileDialog archivo = null;
+        private List<Marca> listaMarcas;
+        private List<Categoria> listaCategorias;
         
         public frmAltaArticulo()
         {
@@ -55,7 +58,6 @@ namespace tp_final_presentacion_ado_net
                     decimal valorDecimal = articulo.Precio;
                     txtPrecio.Text = valorDecimal.ToString(); // Muestra 2 decimales
 
-          
                     cboMarca.SelectedValue = articulo.Marca.Id;
                     cboCategoria.SelectedValue = articulo.Categoria.Id;
 
@@ -73,6 +75,9 @@ namespace tp_final_presentacion_ado_net
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            var  cultureInfo = new CultureInfo("es-AR");
+            cultureInfo.NumberFormat.NumberDecimalSeparator = ",";
+            cultureInfo.NumberFormat.NumberGroupSeparator = ".";
             try
             {
                 if (articulo == null)
@@ -88,7 +93,7 @@ namespace tp_final_presentacion_ado_net
                 string input = txtPrecio.Text;
                 decimal valorDecimal;
 
-                if (decimal.TryParse(input, out valorDecimal))
+                if (decimal.TryParse(input,NumberStyles.Number, cultureInfo,out valorDecimal))
                 {
                     // La conversión fue exitosa, puedes usar valorDecimal
                     articulo.Precio = valorDecimal;
@@ -122,6 +127,26 @@ namespace tp_final_presentacion_ado_net
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cargarMarcaCategoria()
+        {
+            MarcaNegocio negocioMarca = new MarcaNegocio();
+            CategoriaNegocio negocioCategoria = new CategoriaNegocio();
+            try
+            {
+                listaMarcas = negocioMarca.Listar();
+                cboMarca.DataSource = listaMarcas;
+                listaCategorias = negocioCategoria.Listar();
+                cboCategoria.DataSource = listaCategorias;
+                
+                
+            }
+            catch (Exception ex)
+            {
+
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -161,18 +186,6 @@ namespace tp_final_presentacion_ado_net
             }
         }
 
-        private void btnAgregarMarca_Click(object sender, EventArgs e)
-        {
-            frmAltaMarca altaMarca = new frmAltaMarca();
-            altaMarca.ShowDialog();
-            
-        }
-
-        private void btnAgregarCategoria_Click(object sender, EventArgs e)
-        {
-            frmAltaCategoria altaCategoria = new frmAltaCategoria();
-            altaCategoria.ShowDialog();
-
-        }
+      
     }
 }

@@ -35,13 +35,15 @@
             this.txtNuevaMarca = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvMarcas
             // 
             this.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMarcas.Location = new System.Drawing.Point(41, 63);
+            this.dgvMarcas.Location = new System.Drawing.Point(41, 60);
             this.dgvMarcas.Name = "dgvMarcas";
             this.dgvMarcas.Size = new System.Drawing.Size(234, 197);
             this.dgvMarcas.TabIndex = 0;
@@ -51,13 +53,13 @@
             this.lblMarcas.AutoSize = true;
             this.lblMarcas.Location = new System.Drawing.Point(38, 35);
             this.lblMarcas.Name = "lblMarcas";
-            this.lblMarcas.Size = new System.Drawing.Size(45, 13);
+            this.lblMarcas.Size = new System.Drawing.Size(42, 13);
             this.lblMarcas.TabIndex = 1;
-            this.lblMarcas.Text = "Marcas:";
+            this.lblMarcas.Text = "Marcas";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(200, 349);
+            this.btnCancelar.Location = new System.Drawing.Point(220, 372);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 9;
@@ -67,7 +69,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(200, 311);
+            this.btnAgregar.Location = new System.Drawing.Point(188, 49);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 8;
@@ -77,7 +79,7 @@
             // 
             // txtNuevaMarca
             // 
-            this.txtNuevaMarca.Location = new System.Drawing.Point(175, 276);
+            this.txtNuevaMarca.Location = new System.Drawing.Point(163, 16);
             this.txtNuevaMarca.Name = "txtNuevaMarca";
             this.txtNuevaMarca.Size = new System.Drawing.Size(100, 20);
             this.txtNuevaMarca.TabIndex = 7;
@@ -85,22 +87,34 @@
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(41, 279);
+            this.lblMarca.Location = new System.Drawing.Point(112, 19);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblMarca.Size = new System.Drawing.Size(113, 13);
+            this.lblMarca.Size = new System.Drawing.Size(45, 13);
             this.lblMarca.TabIndex = 6;
-            this.lblMarca.Text = "Ingrese Nueva Marca:";
+            this.lblMarca.Text = "Ingrese:";
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(107, 349);
+            this.btnAceptar.Location = new System.Drawing.Point(127, 372);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 10;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblMarca);
+            this.groupBox1.Controls.Add(this.txtNuevaMarca);
+            this.groupBox1.Controls.Add(this.btnAgregar);
+            this.groupBox1.Location = new System.Drawing.Point(12, 279);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(281, 78);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nueva Marca";
             // 
             // frmAltaMarca
             // 
@@ -109,16 +123,16 @@
             this.ClientSize = new System.Drawing.Size(328, 407);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.txtNuevaMarca);
-            this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblMarcas);
             this.Controls.Add(this.dgvMarcas);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmAltaMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AltaMarca";
+            this.Text = "Administrar Marcas";
             this.Load += new System.EventHandler(this.frmAltaMarca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +147,6 @@
         private System.Windows.Forms.TextBox txtNuevaMarca;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

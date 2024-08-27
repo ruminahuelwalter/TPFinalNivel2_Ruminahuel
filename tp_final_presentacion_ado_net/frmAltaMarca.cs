@@ -15,7 +15,9 @@ namespace tp_final_presentacion_ado_net
     public partial class frmAltaMarca : Form
     {
         private List<Marca> listaMarcas;
+        
         private Marca marca;
+        MarcaNegocio negocio = new MarcaNegocio();
         public frmAltaMarca()
         {
             InitializeComponent();
@@ -41,10 +43,9 @@ namespace tp_final_presentacion_ado_net
             dgvMarcas.Columns["Id"].Visible = false;
         }
 
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MarcaNegocio negocio = new MarcaNegocio();
+            //MarcaNegocio negocio = new MarcaNegocio();
             try
             {
                 if (marca == null)
@@ -70,6 +71,7 @@ namespace tp_final_presentacion_ado_net
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+      
         }
 
         private void frmAltaMarca_Load(object sender, EventArgs e)
@@ -79,6 +81,8 @@ namespace tp_final_presentacion_ado_net
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+           
+            //cargar();
             Close();
         }
     }

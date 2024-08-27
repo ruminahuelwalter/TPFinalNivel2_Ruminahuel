@@ -116,5 +116,19 @@ namespace tp_final_presentacion_ado_net
             }
 
         }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca altaMarca = new frmAltaMarca();
+            altaMarca.ShowDialog();
+            //cargarMarcaCategoria();
+        }
+
+        private void agregarModificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria altaCategoria = new frmAltaCategoria();
+            altaCategoria.ShowDialog();
+            //cargarMarcaCategoria();
+        }
     }
 }
