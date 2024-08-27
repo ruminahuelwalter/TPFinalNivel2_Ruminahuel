@@ -41,8 +41,8 @@
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,8 +69,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtCategoria);
+            this.groupBox1.Controls.Add(this.txtMarca);
             this.groupBox1.Controls.Add(this.richTextBoxDescripcion);
             this.groupBox1.Controls.Add(this.txtPrecio);
             this.groupBox1.Controls.Add(this.txtCodigo);
@@ -90,17 +90,17 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Enabled = false;
             this.txtPrecio.Location = new System.Drawing.Point(118, 224);
             this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 7;
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(118, 29);
             this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 1;
             // 
@@ -134,9 +134,9 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(118, 74);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 3;
             // 
@@ -170,26 +170,28 @@
             // 
             // richTextBoxDescripcion
             // 
-            this.richTextBoxDescripcion.Enabled = false;
             this.richTextBoxDescripcion.Location = new System.Drawing.Point(118, 118);
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
+            this.richTextBoxDescripcion.ReadOnly = true;
             this.richTextBoxDescripcion.Size = new System.Drawing.Size(194, 93);
             this.richTextBoxDescripcion.TabIndex = 24;
             this.richTextBoxDescripcion.Text = "";
             // 
-            // textBox1
+            // txtMarca
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 264);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 25;
+            this.txtMarca.Location = new System.Drawing.Point(118, 264);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.ReadOnly = true;
+            this.txtMarca.Size = new System.Drawing.Size(100, 20);
+            this.txtMarca.TabIndex = 25;
             // 
-            // textBox2
+            // txtCategoria
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 306);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 26;
+            this.txtCategoria.Location = new System.Drawing.Point(118, 306);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.ReadOnly = true;
+            this.txtCategoria.Size = new System.Drawing.Size(100, 20);
+            this.txtCategoria.TabIndex = 26;
             // 
             // frmDetalleArticulo
             // 
@@ -200,7 +202,9 @@
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDetalleArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Detalle de Articulo";
+            this.Load += new System.EventHandler(this.frmDetalleArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -221,8 +225,8 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCategoria;
+        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
     }
 }
