@@ -14,7 +14,7 @@ namespace tp_final_presentacion_ado_net
 {
     public partial class frmAltaMarca : Form
     {
-        private Marca marca;
+        private Marca marca= null;
         public frmAltaMarca()
         {
             InitializeComponent();
@@ -22,6 +22,7 @@ namespace tp_final_presentacion_ado_net
 
         public frmAltaMarca(Marca marca)
         {
+            InitializeComponent();
             this.marca = marca;
             Text = "Modificar marca";
         }

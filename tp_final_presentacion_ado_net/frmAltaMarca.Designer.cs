@@ -92,6 +92,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gboxNueva);
             this.Name = "frmAltaMarca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nueva Marca";
             this.Load += new System.EventHandler(this.frmAltaMarca_Load);
             this.gboxNueva.ResumeLayout(false);

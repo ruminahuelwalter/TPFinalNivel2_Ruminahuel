@@ -47,6 +47,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnVerDetalle = new System.Windows.Forms.Button();
+            this.listaArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refrescarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -156,6 +158,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listaArticulosToolStripMenuItem,
             this.marcasToolStripMenuItem,
             this.categoriasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -232,6 +235,21 @@
             this.btnVerDetalle.UseVisualStyleBackColor = true;
             this.btnVerDetalle.Click += new System.EventHandler(this.btnVerDetalle_Click);
             // 
+            // listaArticulosToolStripMenuItem
+            // 
+            this.listaArticulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refrescarToolStripMenuItem});
+            this.listaArticulosToolStripMenuItem.Name = "listaArticulosToolStripMenuItem";
+            this.listaArticulosToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.listaArticulosToolStripMenuItem.Text = "Lista Articulos";
+            // 
+            // refrescarToolStripMenuItem
+            // 
+            this.refrescarToolStripMenuItem.Name = "refrescarToolStripMenuItem";
+            this.refrescarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refrescarToolStripMenuItem.Text = "Refrescar";
+            this.refrescarToolStripMenuItem.Click += new System.EventHandler(this.refrescarToolStripMenuItem_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,5 +298,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnVerDetalle;
+        private System.Windows.Forms.ToolStripMenuItem listaArticulosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refrescarToolStripMenuItem;
     }
 }

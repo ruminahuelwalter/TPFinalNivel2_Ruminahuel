@@ -47,13 +47,13 @@ namespace tp_final_presentacion_ado_net
                 if (categoria.Id != 0)
                 {
                     negocio.Modificar(categoria);
-                    MessageBox.Show("Categoria modificada exitosamente");
+                    MessageBox.Show("La categoria se modifico correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (categoria.Descripcion != "") 
                 {
                     negocio.Agregar(categoria);
-                        MessageBox.Show("Categoria agregada exitosamente");
-                    }
+                    MessageBox.Show("La categoria se agregó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
                 Close();
             }
