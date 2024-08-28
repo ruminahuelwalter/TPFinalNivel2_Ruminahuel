@@ -25,8 +25,8 @@ namespace tp_final_presentacion_ado_net
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             Cargar();
-            cboCampo.Items.Add("Precio");
             cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Precio");
             cboCampo.Items.Add("Descripción");
 
         }
@@ -87,21 +87,10 @@ namespace tp_final_presentacion_ado_net
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
-            //seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+           
             try
             {
-                //if (dgvArticulos.CurrentRow == null)
-                //{
-                //    MessageBox.Show("No hay ningun articulo seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
-                //if (!(dgvArticulos.CurrentRow.DataBoundItem is Articulo seleccionado))
-                //{
-                //    MessageBox.Show("El artículo seleccionado es inválido o no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
+                
                 if (validarSeleccionDataGridView())
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -132,7 +121,7 @@ namespace tp_final_presentacion_ado_net
             Articulo seleccionado;
             try
             {
-                //if (respuesta == DialogResult.Yes && validarSeleccionDataGridView())
+           
                 if (validarSeleccionDataGridView()) 
                 {
                     DialogResult respuesta = MessageBox.Show("¿De verdad desea eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -199,18 +188,7 @@ namespace tp_final_presentacion_ado_net
             Articulo seleccionado;
             try
             {
-                //if (dgvArticulos.CurrentRow == null)
-                //{
-                //    MessageBox.Show("No hay ningun articulo seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
-                //if (!(dgvArticulos.CurrentRow.DataBoundItem is Articulo seleccionado))
-                //{
-                //    MessageBox.Show("El artículo seleccionado es inválido o no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
+                
                 if (validarSeleccionDataGridView())
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -326,8 +304,6 @@ namespace tp_final_presentacion_ado_net
         private bool soloNumeros(string cadena)
         {
             var cultureInfo = new CultureInfo("es-AR");
-            //cultureInfo.NumberFormat.NumberDecimalSeparator = ",";
-            //cultureInfo.NumberFormat.NumberGroupSeparator = ".";
             decimal valorDecimal;
 
             if (Decimal.TryParse(cadena,NumberStyles.Number, cultureInfo, out valorDecimal))
