@@ -41,7 +41,6 @@ namespace tp_final_presentacion_ado_net
 
                 categoria.Descripcion = txtNuevaCategoria.Text;
 
-                // Chequear existencia de categoria
                 listaCategorias = negocio.Listar();
                 foreach (var item in listaCategorias)
                 {
