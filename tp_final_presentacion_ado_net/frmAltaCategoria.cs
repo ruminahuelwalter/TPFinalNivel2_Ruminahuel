@@ -52,10 +52,14 @@ namespace tp_final_presentacion_ado_net
                     
                 }
 
-                if (categoria.Id != 0)
+                if (categoria.Id != 0 && categoria.Descripcion != "")
                 {
                     negocio.Modificar(categoria);
                     MessageBox.Show("La categoria se modifico correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (categoria.Id != 0 && categoria.Descripcion == "")
+                {
+                    MessageBox.Show("Error al agregar, categoria vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (categoria.Descripcion != "" && !categoriaExistente)
                 {

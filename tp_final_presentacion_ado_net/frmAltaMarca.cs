@@ -52,11 +52,15 @@ namespace tp_final_presentacion_ado_net
 
                 }
 
-                if (marca.Id != 0)
+                if (marca.Id != 0 && marca.Descripcion != "")
                 {
                     negocio.Modificar(marca);
                     
                     MessageBox.Show("La marca se modifico correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (marca.Id != 0 && marca.Descripcion == "")
+                {
+                    MessageBox.Show("Error al modificar, marca vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (marca.Descripcion != "" && !marcaExistente)
                 {

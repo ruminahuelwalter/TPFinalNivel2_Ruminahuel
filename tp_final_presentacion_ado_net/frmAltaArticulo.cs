@@ -122,6 +122,8 @@ namespace tp_final_presentacion_ado_net
                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
                 }
 
+
+
                 Close();
 
             }

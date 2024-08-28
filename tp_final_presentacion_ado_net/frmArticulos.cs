@@ -141,7 +141,6 @@ namespace tp_final_presentacion_ado_net
                         seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                         negocio.Eliminar(seleccionado.Id);
                         Cargar();
-
                     }
 
                 }
@@ -217,18 +216,14 @@ namespace tp_final_presentacion_ado_net
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     frmDetalleArticulo ver = new frmDetalleArticulo(seleccionado);
                     ver.ShowDialog();
+                    Cargar();
                 }
-                
                 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Seleccione un elemento", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
-            Cargar();
         }
 
         private void refrescarToolStripMenuItem_Click(object sender, EventArgs e)
