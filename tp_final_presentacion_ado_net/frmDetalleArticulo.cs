@@ -42,7 +42,7 @@ namespace tp_final_presentacion_ado_net
                     cargarImagen(articulo.ImagenUrl);
 
                     decimal valorDecimal = articulo.Precio;
-                    txtPrecio.Text = valorDecimal.ToString(); // Muestra 2 decimales
+                    txtPrecio.Text = valorDecimal.ToString(); 
 
                     txtMarca.Text = articulo.Marca.Descripcion.ToString();
                     txtCategoria.Text = articulo.Categoria.Descripcion.ToString();
