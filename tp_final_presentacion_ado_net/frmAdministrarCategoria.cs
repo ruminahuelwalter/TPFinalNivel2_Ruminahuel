@@ -16,7 +16,7 @@ namespace tp_final_presentacion_ado_net
     public partial class frmAdministrarCategoria : Form
     {
         private List<Categoria> listaCategorias;
-        private Categoria categoria = null;
+        
         public frmAdministrarCategoria()
         {
             InitializeComponent();

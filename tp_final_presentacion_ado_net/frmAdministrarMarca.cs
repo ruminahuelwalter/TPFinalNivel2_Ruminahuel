@@ -16,7 +16,7 @@ namespace tp_final_presentacion_ado_net
     {
         private List<Marca> listaMarcas;
         
-        private Marca marca;
+        
         MarcaNegocio negocio = new MarcaNegocio();
         public frmAdministrarMarca()
         {
