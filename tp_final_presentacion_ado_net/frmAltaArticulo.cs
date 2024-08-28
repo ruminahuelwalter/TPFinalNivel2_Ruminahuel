@@ -56,7 +56,7 @@ namespace tp_final_presentacion_ado_net
                     cargarImagen(articulo.ImagenUrl);
 
                     decimal valorDecimal = articulo.Precio;
-                    txtPrecio.Text = valorDecimal.ToString(); // Muestra 2 decimales
+                    txtPrecio.Text = valorDecimal.ToString(); 
 
                     cboMarca.SelectedValue = articulo.Marca.Id;
                     cboCategoria.SelectedValue = articulo.Categoria.Id;
@@ -100,7 +100,7 @@ namespace tp_final_presentacion_ado_net
                 }
                 else
                 {
-                    // La conversión falló, manejar el error
+                   
                     MessageBox.Show("Por favor, ingresa un número válido.");
                 }
 
