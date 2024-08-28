@@ -30,8 +30,7 @@
         {
             this.dgvMarcas = new System.Windows.Forms.DataGridView();
             this.lblMarcas = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -57,25 +56,15 @@
             this.lblMarcas.TabIndex = 1;
             this.lblMarcas.Text = "Marcas";
             // 
-            // btnCancelar
+            // btnCerrar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(220, 372);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(127, 372);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 10;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnCerrar.Location = new System.Drawing.Point(220, 372);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // groupBox2
             // 
@@ -125,8 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 407);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblMarcas);
             this.Controls.Add(this.dgvMarcas);
             this.Name = "frmAdministrarMarca";
@@ -144,8 +132,7 @@
 
         private System.Windows.Forms.DataGridView dgvMarcas;
         private System.Windows.Forms.Label lblMarcas;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;

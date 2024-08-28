@@ -22,10 +22,11 @@ namespace tp_final_presentacion_ado_net
             InitializeComponent();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void frmAltaCategoria_Load(object sender, EventArgs e)
         {
-            Close();
+            cargar();
         }
+
         private void cargar()
         {
             CategoriaNegocio negocio = new CategoriaNegocio();
@@ -55,16 +56,6 @@ namespace tp_final_presentacion_ado_net
 
         }
 
-        private void frmAltaCategoria_Load(object sender, EventArgs e)
-        {
-            cargar();
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Categoria seleccionado;
@@ -78,6 +69,10 @@ namespace tp_final_presentacion_ado_net
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             eliminar();
+        }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void eliminar()

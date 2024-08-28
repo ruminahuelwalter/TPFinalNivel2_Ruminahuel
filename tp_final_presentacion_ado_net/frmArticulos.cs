@@ -87,11 +87,38 @@ namespace tp_final_presentacion_ado_net
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+            //seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            try
+            {
+                //if (dgvArticulos.CurrentRow == null)
+                //{
+                //    MessageBox.Show("No hay ningun articulo seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+
+                //if (!(dgvArticulos.CurrentRow.DataBoundItem is Articulo seleccionado))
+                //{
+                //    MessageBox.Show("El artículo seleccionado es inválido o no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+
+                if (validarSeleccionDataGridView())
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+                    modificar.ShowDialog();
+
+                }
+
+
             
-            modificar.ShowDialog();
-            Cargar();
+                Cargar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Seleccione un elemento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
@@ -108,8 +135,9 @@ namespace tp_final_presentacion_ado_net
             try
             {
                 DialogResult respuesta = MessageBox.Show("¿De verdad desea eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
+                if (respuesta == DialogResult.Yes && validarSeleccionDataGridView())
                 {
+
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     negocio.Eliminar(seleccionado.Id);
                     Cargar();
@@ -121,6 +149,33 @@ namespace tp_final_presentacion_ado_net
                 MessageBox.Show(ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private bool validarSeleccionDataGridView()
+        {
+            try
+            {
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("No hay ningun articulo seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                if (!(dgvArticulos.CurrentRow.DataBoundItem is Articulo seleccionado))
+                {
+                    MessageBox.Show("El artículo seleccionado es inválido o no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                return true;
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Seleccione un elemento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+           
         }
 
         private void aToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,22 +194,28 @@ namespace tp_final_presentacion_ado_net
 
         private void btnVerDetalle_Click(object sender, EventArgs e)
         {
+            Articulo seleccionado;
             try
             {
-                if (dgvArticulos.CurrentRow == null)
-                {
-                    MessageBox.Show("No hay ningun articulo seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (dgvArticulos.CurrentRow == null)
+                //{
+                //    MessageBox.Show("No hay ningun articulo seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
-                if (!(dgvArticulos.CurrentRow.DataBoundItem is Articulo seleccionado))
+                //if (!(dgvArticulos.CurrentRow.DataBoundItem is Articulo seleccionado))
+                //{
+                //    MessageBox.Show("El artículo seleccionado es inválido o no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+
+                if (validarSeleccionDataGridView())
                 {
-                    MessageBox.Show("El artículo seleccionado es inválido o no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    frmDetalleArticulo ver = new frmDetalleArticulo(seleccionado);
+                    ver.ShowDialog();
                 }
                 
-                frmDetalleArticulo ver = new frmDetalleArticulo(seleccionado);
-                ver.ShowDialog();
                 
             }
             catch (Exception ex)
@@ -267,8 +328,8 @@ namespace tp_final_presentacion_ado_net
         private bool soloNumeros(string cadena)
         {
             var cultureInfo = new CultureInfo("es-AR");
-            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
-            cultureInfo.NumberFormat.NumberGroupSeparator = ",";
+            //cultureInfo.NumberFormat.NumberDecimalSeparator = ",";
+            //cultureInfo.NumberFormat.NumberGroupSeparator = ".";
             decimal valorDecimal;
 
             if (Decimal.TryParse(cadena,NumberStyles.Number, cultureInfo, out valorDecimal))

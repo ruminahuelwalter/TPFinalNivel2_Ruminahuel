@@ -45,7 +45,7 @@ namespace tp_final_presentacion_ado_net
 
        
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
         }
