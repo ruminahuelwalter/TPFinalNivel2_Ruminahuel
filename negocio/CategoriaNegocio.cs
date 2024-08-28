@@ -98,7 +98,7 @@ namespace negocio
             }
             catch (Exception ex)
             {
-                // Envio del error a capas superiores
+                
                 throw new Exception("Error al intentar eliminar la categoría: " + ex.Message, ex);
             }
             finally
@@ -112,13 +112,13 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                // Verificar si la categoría está referenciada en artículos
+                
                 datos.setearConsulta("select COUNT(*) from articulos where IdCategoria = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarLectura();
 
                 datos.Lector.Read();
-                int contador = datos.Lector.GetInt32(0); // Obtiene el primer (y único) valor del lector
+                int contador = datos.Lector.GetInt32(0); 
 
                 datos.cerrarConexion(); 
 
