@@ -55,11 +55,6 @@ namespace tp_final_presentacion_ado_net
             cargar();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAltaMarca marca = new frmAltaMarca();
