@@ -111,13 +111,13 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                // Verificar si la marca está referenciada en artículos
+               
                 datos.setearConsulta("SELECT COUNT(*) FROM ARTICULOS WHERE IdMarca = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarLectura();
 
                 datos.Lector.Read();
-                int contador = datos.Lector.GetInt32(0); // Obtiene el primer (y único) valor del lector
+                int contador = datos.Lector.GetInt32(0); 
 
                 datos.cerrarConexion();
 
