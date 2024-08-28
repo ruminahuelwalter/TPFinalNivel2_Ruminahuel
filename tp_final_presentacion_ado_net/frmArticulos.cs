@@ -110,8 +110,6 @@ namespace tp_final_presentacion_ado_net
 
                 }
 
-
-            
                 Cargar();
             }
             catch (Exception ex)
@@ -134,13 +132,18 @@ namespace tp_final_presentacion_ado_net
             Articulo seleccionado;
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿De verdad desea eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes && validarSeleccionDataGridView())
+                //if (respuesta == DialogResult.Yes && validarSeleccionDataGridView())
+                if (validarSeleccionDataGridView()) 
                 {
+                    DialogResult respuesta = MessageBox.Show("¿De verdad desea eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                        negocio.Eliminar(seleccionado.Id);
+                        Cargar();
 
-                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                    negocio.Eliminar(seleccionado.Id);
-                    Cargar();
+                    }
+
                 }
             }
             catch (Exception ex)
