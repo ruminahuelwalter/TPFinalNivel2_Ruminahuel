@@ -41,7 +41,7 @@ namespace tp_final_presentacion_ado_net
                 }
 
                 marca.Descripcion = txtNuevaMarca.Text;
-                // Chequear existencia de categoria
+               
                 listaMarcas = negocio.Listar();
                 foreach (var item in listaMarcas)
                 {
