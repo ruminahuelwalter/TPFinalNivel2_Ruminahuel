@@ -50,19 +50,22 @@
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarModificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(43, 41);
+            this.dgvArticulos.Location = new System.Drawing.Point(13, 21);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(504, 327);
+            this.dgvArticulos.Size = new System.Drawing.Size(504, 268);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -145,9 +148,9 @@
             // pbxArticulo
             // 
             this.pbxArticulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbxArticulo.Location = new System.Drawing.Point(574, 41);
+            this.pbxArticulo.Location = new System.Drawing.Point(587, 64);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(384, 416);
+            this.pbxArticulo.Size = new System.Drawing.Size(384, 392);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 9;
             this.pbxArticulo.TabStop = false;
@@ -166,7 +169,7 @@
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnModificar);
-            this.groupBox1.Location = new System.Drawing.Point(43, 382);
+            this.groupBox1.Location = new System.Drawing.Point(43, 381);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(414, 75);
             this.groupBox1.TabIndex = 12;
@@ -192,7 +195,7 @@
             this.groupBox2.Controls.Add(this.lblFiltroAvanzado);
             this.groupBox2.Controls.Add(this.cboCriterio);
             this.groupBox2.Controls.Add(this.lblCriterio);
-            this.groupBox2.Location = new System.Drawing.Point(43, 476);
+            this.groupBox2.Location = new System.Drawing.Point(43, 475);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(627, 77);
             this.groupBox2.TabIndex = 13;
@@ -220,7 +223,7 @@
             // refrescarToolStripMenuItem
             // 
             this.refrescarToolStripMenuItem.Name = "refrescarToolStripMenuItem";
-            this.refrescarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refrescarToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.refrescarToolStripMenuItem.Text = "Refrescar";
             this.refrescarToolStripMenuItem.Click += new System.EventHandler(this.refrescarToolStripMenuItem_Click);
             // 
@@ -235,7 +238,7 @@
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.aToolStripMenuItem.Text = "Administrar";
             this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
@@ -250,7 +253,7 @@
             // agregarModificarToolStripMenuItem
             // 
             this.agregarModificarToolStripMenuItem.Name = "agregarModificarToolStripMenuItem";
-            this.agregarModificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarModificarToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.agregarModificarToolStripMenuItem.Text = "Administrar";
             this.agregarModificarToolStripMenuItem.Click += new System.EventHandler(this.agregarModificarToolStripMenuItem_Click);
             // 
@@ -262,20 +265,41 @@
             this.categoriasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(988, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(993, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvArticulos);
+            this.groupBox3.Location = new System.Drawing.Point(30, 43);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(530, 308);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Lista de Articulos";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(574, 43);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.groupBox4.Size = new System.Drawing.Size(407, 426);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Imágen de Articulo";
             // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 565);
+            this.ClientSize = new System.Drawing.Size(993, 590);
             this.Controls.Add(this.pbxArticulo);
-            this.Controls.Add(this.dgvArticulos);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -288,6 +312,7 @@
             this.groupBox2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +342,7 @@
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarModificarToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
