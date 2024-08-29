@@ -103,7 +103,7 @@ namespace tp_final_presentacion_ado_net
                 else
                 {
 
-                    throw new Exception(); // MessageBox.Show("Por favor, ingrese un número válido.");
+                    throw new Exception();
                 }
 
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
@@ -130,31 +130,12 @@ namespace tp_final_presentacion_ado_net
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error, al completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error, al completar los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
         }
 
-        private void cargarMarcaCategoria()
-        {
-            MarcaNegocio negocioMarca = new MarcaNegocio();
-            CategoriaNegocio negocioCategoria = new CategoriaNegocio();
-            try
-            {
-                listaMarcas = negocioMarca.Listar();
-                cboMarca.DataSource = listaMarcas;
-                listaCategorias = negocioCategoria.Listar();
-                cboCategoria.DataSource = listaCategorias;
-                
-                
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
+        
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();

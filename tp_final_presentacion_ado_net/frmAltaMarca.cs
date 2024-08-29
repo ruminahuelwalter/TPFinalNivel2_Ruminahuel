@@ -60,7 +60,7 @@ namespace tp_final_presentacion_ado_net
                 }
                 else if (marca.Id != 0 && marca.Descripcion == "")
                 {
-                    MessageBox.Show("Error al modificar, marca vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al modificar, marca vacia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (marca.Descripcion != "" && !marcaExistente)
                 {
@@ -70,7 +70,7 @@ namespace tp_final_presentacion_ado_net
 
                 else if (marcaExistente)
                 {
-                    MessageBox.Show("Error al agregar, marca existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al agregar, marca existente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 Close();

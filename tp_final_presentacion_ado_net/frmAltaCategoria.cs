@@ -58,7 +58,7 @@ namespace tp_final_presentacion_ado_net
                 }
                 else if (categoria.Id != 0 && categoria.Descripcion == "")
                 {
-                    MessageBox.Show("Error al agregar, categoria vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al modificar, categoria vacia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (categoria.Descripcion != "" && !categoriaExistente)
                 {
@@ -67,7 +67,7 @@ namespace tp_final_presentacion_ado_net
                 }
                 else if (categoriaExistente)
                 {
-                    MessageBox.Show( "Error al agregar, categoria existente","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show( "Error al agregar, categoria existente.","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 Close();
