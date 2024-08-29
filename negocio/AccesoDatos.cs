@@ -25,8 +25,8 @@ namespace negocio
 
         public void setearConsulta(string consulta)
         {
-            comando.CommandType = System.Data.CommandType.Text; // Tipo
-            comando.CommandText = consulta; // Query
+            comando.CommandType = System.Data.CommandType.Text; 
+            comando.CommandText = consulta; 
 
         }
 
