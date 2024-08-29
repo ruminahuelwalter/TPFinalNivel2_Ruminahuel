@@ -194,7 +194,7 @@ namespace tp_final_presentacion_ado_net
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     frmDetalleArticulo ver = new frmDetalleArticulo(seleccionado);
                     ver.ShowDialog();
-                    Cargar();
+                    
                 }
                 
             }

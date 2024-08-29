@@ -38,13 +38,15 @@ namespace tp_final_presentacion_ado_net
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                
             try
             {
+
                 cboCategoria.DataSource = categoriaNegocio.Listar();
-                cboCategoria.ValueMember = "id";
+                cboCategoria.ValueMember = "Id";
                 cboCategoria.DisplayMember = "Descripcion";
                 cboMarca.DataSource = marcaNegocio.Listar();
-                cboMarca.ValueMember = "id";
+                cboMarca.ValueMember = "Id";
                 cboMarca.DisplayMember = "Descripcion";
                 
                 if (articulo != null)
@@ -100,8 +102,8 @@ namespace tp_final_presentacion_ado_net
                 }
                 else
                 {
-                   
-                    MessageBox.Show("Por favor, ingresa un número válido.");
+
+                    throw new Exception(); // MessageBox.Show("Por favor, ingrese un número válido.");
                 }
 
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
@@ -110,26 +112,26 @@ namespace tp_final_presentacion_ado_net
                 if (articulo.Id != 0)
                 {
                     negocio.Modificar(articulo);
-                    MessageBox.Show("Modificado exitosamente");
+                    MessageBox.Show("El articulo se modifico correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     negocio.Agregar(articulo);
-                    MessageBox.Show("Agregado exitosamente");
+                    MessageBox.Show("El articulo se agregó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 if (archivo != null && !(txtUrlImagen.Text.ToUpper().Contains("HTTP")))
                 {
                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
                 }
-
-
+                
 
                 Close();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error, al completar los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.ToString());
             }
         }
 
@@ -175,6 +177,7 @@ namespace tp_final_presentacion_ado_net
             }
         }
 
+       
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             archivo = new OpenFileDialog();

@@ -28,8 +28,7 @@ namespace tp_final_presentacion_ado_net
 
         private void frmDetalleArticulo_Load(object sender, EventArgs e)
         {
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            
             try
             {
                 
